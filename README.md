@@ -7,5 +7,5 @@ Nodejs expree mongodb typescript react styled-components
 — npm run dev - run client and server
 
 ### Ports
-⋅⋅* client http://localhost:3000
-⋅⋅* server http://localhost:5000
+* client http://localhost:3000
+* server http://localhost:5000
