@@ -5,7 +5,6 @@ const DB = require('./application/models');
 const UserContext = require('./application/middleware/contexts/UserContext');
 const AppRouter = require('./routers/AppRouter');
 const AuthRouter = require('./routers/AuthRouter');
-const HttpLog = require('./application/middleware/HttpLog');
 const ValidationErrorHandler = require('./application/middleware/handlers/ValidationHandler');
 
 const App = Express()
@@ -17,8 +16,8 @@ DB.sequelize
         App.use(CORS());
         App.use(BodyParser.json({ limit: '15mb' }));
 
-        App.use('/api/v1/app', UserContext, HttpLog, AppRouter);
-        App.use('/api/v1/auth', HttpLog, AuthRouter);
+        App.use('/api/v1/app', UserContext, AppRouter);
+        App.use('/api/v1/auth', AuthRouter);
 
         //Error handlers
         App.use(ValidationErrorHandler);
