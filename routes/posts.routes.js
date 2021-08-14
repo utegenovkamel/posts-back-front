@@ -1,7 +1,7 @@
 const { Router } = require('express')
 const router = Router()
-const auth = require('../middleware/auth.middleware')
-const PostController = require('../controllers/postController')
+const auth = require('../application/middleware/auth.middleware')
+const PostController = require('../application/controllers/postController')
 
 router.get('', auth, PostController.getAllPosts)
 

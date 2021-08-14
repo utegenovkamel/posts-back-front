@@ -1,5 +1,5 @@
 const Post = require('../models/Post')
-const { post } = require('../routes/auth.routes')
+const { post } = require('../../routes/auth.routes')
 
 class PostService {
     async getAllPosts() {

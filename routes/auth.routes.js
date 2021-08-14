@@ -1,13 +1,19 @@
-const { Router } = require('express')
-const router = Router()
-const AuthController = require('../controllers/authController')
+const Express = require('express');
+const Router = Express.Router();
 
-router.post(
+const UserContext = require('../application/middleware/contexts/UserContext');
+const AuthController = require('../application/controllers/AuthController');
+
+const CredentialsRequired = require("../application/middleware/validators/CredentialsValidator");
+const BodyRequired = require("../application/middleware/validators/BodyRequiredValidator");
+
+Router.post('/login', BodyRequired, CredentialsRequired, AuthController.logIn);
+Router.post('/password/change', UserContext, AuthController.changePassword);
+Router.post(
     '/register',
     AuthController.registerCheck(),
     AuthController.register
 )
 
-router.post('/login', AuthController.loginCheck(), AuthController.login)
+module.exports = Router;
 
-module.exports = router
