@@ -1,33 +1,32 @@
-const Express = require('express')
-const CORS = require('cors')
+const Express = require('express');
+const CORS = require('cors');
 const BodyParser = require('body-parser');
 const DB = require('./application/models');
 const UserContext = require('./application/middleware/contexts/UserContext');
-const AppRouter = require('./routers/AppRouter');
-const AuthRouter = require('./routers/AuthRouter');
+const Post = require('./routes/post.routes');
+const AuthRouter = require('./routes/auth.routes');
 const ValidationErrorHandler = require('./application/middleware/handlers/ValidationHandler');
 
-const App = Express()
-
+const App = Express();
 
 DB.sequelize
-    .authenticate()
-    .then(() => {
-        App.use(CORS());
-        App.use(BodyParser.json({ limit: '15mb' }));
+  .authenticate()
+  .then(() => {
+    App.use(CORS());
+    App.use(BodyParser.json({ limit: '15mb' }));
 
-        App.use('/api/v1/app', UserContext, AppRouter);
-        App.use('/api/v1/auth', AuthRouter);
+    App.use('/api/v1/app', UserContext, Post);
+    App.use('/api/v1/auth', AuthRouter);
 
-        //Error handlers
-        App.use(ValidationErrorHandler);
+    //Error handlers
+    App.use(ValidationErrorHandler);
 
-        //Start server
-        App.listen(process.env.APPLICATION_PORT, () => {
-            console.log('Server has started!');
-        });
-    })
-    .catch((e) => {
-        console.log(e);
-        process.exit();
+    //Start server
+    App.listen(process.env.APPLICATION_PORT, () => {
+      console.log('Server has started!');
     });
+  })
+  .catch((e) => {
+    console.log(e);
+    process.exit();
+  });
