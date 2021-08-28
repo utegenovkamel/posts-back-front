@@ -1,8 +1,6 @@
 'use strict';
 const { Model } = require('sequelize');
 
-const PreconditionRequiredError = require('../../errors/PreconditionRequiredError');
-
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
@@ -12,7 +10,11 @@ module.exports = (sequelize, DataTypes) => {
 
   User.init(
     {
+      Username: { type: DataTypes.STRING, allowNull: false, unique: true },
+      Firstname: { type: DataTypes.STRING, allowNull: false },
+      Lastname: { type: DataTypes.STRING },
       Password: { type: DataTypes.STRING, allowNull: false },
+        ProfileImage: {type: DataTypes.IMAGE}
       Email: {
         type: DataTypes.STRING,
         allowNull: false,

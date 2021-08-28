@@ -15,7 +15,7 @@ DB.sequelize
     App.use(CORS());
     App.use(BodyParser.json({ limit: '15mb' }));
 
-    App.use('/api/v1/app', UserContext, Post);
+    App.use('/api/v1/app/post', UserContext, Post);
     App.use('/api/v1/auth', AuthRouter);
 
     //Error handlers

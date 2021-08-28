@@ -1,42 +1,70 @@
-const bcrypt = require('bcryptjs')
-const config = require('config')
-const jwt = require('jsonwebtoken')
-const User = require('../models/User')
+const DB = require('../models');
+const bcrypt = require('bcryptjs');
+const JWT = require('jsonwebtoken');
+
+const ConflictError = require('../../errors/ConflictError');
+const AuthenticationError = require('../../errors/UnauthorizedError');
+const TokenExpiredError = JWT.TokenExpiredError;
+const JsonWebTokenError = JWT.JsonWebTokenError;
+
+const User = DB.sequelize.models.User;
+const Secret = process.env.JWT_SECRET;
 
 class AuthService {
-    async register(authData) {
-        const { email, password } = authData
-        const candidate = await User.findOne({ email })
+  async registration(body) {
+    const { Email, Password } = body;
+    const candidate = await User.findOne({
+      where: { Email },
+    });
 
-        if (candidate) {
-            throw new Error('Такой пользователь уже существует')
-        }
-
-        const hashedPassword = await bcrypt.hash(password, 12)
-        const newUser = new User({ email, password: hashedPassword })
-
-        await newUser.save()
+    if (candidate) {
+      throw new ConflictError('User already exists');
     }
 
-    async login(authData) {
-        const { email, password } = authData
-        const user = await User.findOne({ email })
-        if (!user) {
-            throw new Error('Пользователь не найден')
-        }
+    const hashedPassword = await bcrypt.hash(Password, 7);
+    return await User.create({ Email, Password: hashedPassword });
+  }
 
-        const validPassword = await bcrypt.compare(password, user.password)
-        if (!validPassword) {
-            throw new Error('Неверный пароль, попробуйте снова')
-        }
+  async login(body) {
+    const { Email, Password } = body;
+    const user = await User.findOne({
+      where: { Email },
+    });
 
-        return {
-            token: jwt.sign({ userId: user.id }, config.get('jwtSecret'), {
-                expiresIn: '24h',
-            }),
-            userId: user.id,
-        }
+    if (!user) throw new AuthenticationError('Invalid credentials.');
+
+    const isMatch = await bcrypt.compare(Password, user.Password);
+    if (!isMatch) throw new AuthenticationError('Invalid credentials.');
+
+    // Token expires in 14 days.
+    const jwt = JWT.sign({ UserId: user.id }, Secret, {
+      expiresIn: 3600 * 24 * 14,
+    });
+
+    return { user, jwt };
+  }
+
+  // tries to decode JWT, returns instance of User model or throws AuthenticationError
+  async decodeToken(Token) {
+    try {
+      const decodedToken = JWT.verify(Token, Secret);
+
+      const user = await User.findOne({
+        attributes: { exclude: ['Password'] },
+        where: { id: decodedToken.UserId },
+      });
+
+      if (!user)
+        throw new AuthenticationError('Invalid token. Bound entity not found.');
+      else return user;
+    } catch (e) {
+      if (e instanceof TokenExpiredError)
+        throw new AuthenticationError('Token expired.');
+      if (e instanceof JsonWebTokenError)
+        throw new AuthenticationError('Invalid token.');
+      else throw e;
     }
+  }
 }
 
-module.exports = new AuthService()
+module.exports = new AuthService();

@@ -4,11 +4,10 @@ const AuthService = require('../../services/AuthService');
 module.exports = async (req, res, next) => {
   let token = req.headers['authorization'];
   if (!token) {
-    next(new AuthenticationError('authorization token not found'));
-    return;
+    return next(new AuthenticationError('Authorization token not found'));
   }
   try {
-    const user = await AuthService.attemptDecodeToken(token.slice(7));
+    const user = await AuthService.decodeToken(token.slice(7));
     req.User = user;
     next();
   } catch (e) {

@@ -1,22 +1,22 @@
 export type Auth = {
-  Email: string;
-  Password: string;
+  Email: string | any;
+  Password: string | any;
 };
 
 export type JwtData = {
-  userId: string;
-  token: string;
+  userId: string | any;
+  token: string | any;
 };
 
 export type PostType = {
-  id?: number;
-  Title: string;
-  Description: string;
-  createdBy: string;
+  id?: number | any;
+  Title: string | any;
+  Description: string | any;
+  createdBy: string | any;
 };
 
 export type PostData = {
-  id?: number;
-  Title: string;
-  Description: string;
+  id?: number | any;
+  Title: string | any;
+  Description: string | any;
 };

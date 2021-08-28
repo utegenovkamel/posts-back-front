@@ -1,15 +1,15 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { login, register } from '../../api';
-import useInput from '../../hooks/input.hook';
+import useInputs from '../../hooks/input.hook';
 import { Button, Flex, Input, Label, Text } from '../../ui';
 import { emailPattern } from '../../utils/regExp';
 import { AuthWrapper } from './styled';
 
 const AuthForm = () => {
   const history = useHistory();
-  const email = useInput('');
-  const password = useInput('');
+  const email = useInputs('');
+  const password = useInputs('');
 
   const validation = () => {
     return (

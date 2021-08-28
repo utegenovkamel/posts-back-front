@@ -1,14 +1,10 @@
 [
   {
-    "Username": "Andrey",
     "Password": "qwerty123",
-    "TenantId": 1,
-    "GroupId": 1,
-    "IsSuperadmin": false,
-    "IsActive": true,
-    "Firstname": "Andrey",
-    "Lastname": "AndreyLastName",
-    "Email": "asd@asd.as",
-    "FTE": 1
+    "Email": "kamel@mail.ru"
+  },
+  {
+    "Password": "qwerty123",
+    "Email": "vasy@mail.ru"
   }
 ]

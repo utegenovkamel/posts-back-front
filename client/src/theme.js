@@ -1,0 +1,16 @@
+export default {
+  primary: '#1e1f26',
+  primaryLighter: '#282933',
+  textColor: '#7A7A7A',
+  iconColor: '#656565',
+  green: '#4cee6c',
+  yellow: '#5ca4ac',
+  white: '#FFFFFF',
+  red: '#d04627',
+  sideNav: '#2d2d2d',
+  content: '#191919',
+  rightContent: '#33333d',
+  blue: '#86dbf2',
+  grey: '#656565',
+  darkBlue: '#17191e',
+};
