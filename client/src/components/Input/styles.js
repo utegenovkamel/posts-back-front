@@ -1,34 +1,24 @@
-import styled from 'styled-components'
-import { colors } from 'config/themes'
+import styled from 'styled-components';
 
-export const StyledButton = styled.button`
-  padding: 0.5rem 2rem;
-  text-decoration: none;
-  text-align: center;
-  line-height: 1.5rem;
-  font-weight: lighter;
+export const Container = styled.div`
+  margin-bottom: 0.8rem;
+`;
+export const InputField = styled.input`
+  display: block;
+  text-align: left;
   outline: none;
-  white-space: nowrap;
-  font-family: Gilroy-ExtraBold, sans-serif;
-  font-size: 1rem;
-  border: none;
-  border-radius: 1.25rem;
-  background: ${({ inverted }) =>
-    inverted ? colors.dirtyRed : colors.secondaryDark};
-  color: ${({ inverted }) => (inverted ? 'white' : 'white')};
-  cursor: pointer;
-  transition: all 0.5s ease;
+  font-size: 1.05rem;
+  padding: 14px 16px;
+  width: 100%;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  border: 1px solid #dddfe2;
+`;
+export const Error = styled.span`
+  display: block;
+  padding: 0.4rem 0 0;
+  font-size: 0.75rem;
+`;
 
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  &:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-
-    &:hover {
-      transform: none;
-    }
-  }
-`
+export const Label = styled.label`
+  font-size: 1.2rem;
+`;

@@ -1,10 +1,16 @@
-import React from 'react'
-import { StyledButton } from './styles'
+import React from 'react';
+import PropTypes from 'prop-types';
+import theme from 'theme';
+import { StyledButton } from './styles';
 
-export const Button = ({ children, inverted = false, ...rest }) => {
+export const Button = ({ children, style, ...rest }) => {
   return (
-    <StyledButton inverted={inverted} {...rest}>
+    <StyledButton style={theme[style]} {...rest}>
       {children}
     </StyledButton>
-  )
-}
+  );
+};
+
+Button.propTypes = {
+  style: PropTypes.oneOf(['main', 'green']),
+};
