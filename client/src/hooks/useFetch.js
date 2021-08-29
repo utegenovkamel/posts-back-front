@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connector } from 'helpers';
-import { getUrlParams } from 'helpers/getUrlParams';
+import { getUrlParams } from 'helpers';
 
 const defaultOptions = {
   jwt: null,
@@ -9,7 +9,7 @@ const defaultOptions = {
 };
 
 // use it if you wanna fetch with GET method
-export const useFetch = (path, options = defaultOptions) => {
+const useFetch = (path, options = defaultOptions) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -41,3 +41,5 @@ export const useFetch = (path, options = defaultOptions) => {
 
   return { data, loading, error };
 };
+
+export default useFetch;

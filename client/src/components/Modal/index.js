@@ -1,2 +1,2 @@
-export { Button } from './Button'
-export { Button as default } from './Button'
+export { Modal } from './Modal';
+export { Modal as default } from './Modal';

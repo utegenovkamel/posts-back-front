@@ -1,34 +1,25 @@
-import styled from 'styled-components'
-import { colors } from 'config/themes'
+import styled from 'styled-components';
 
-export const StyledButton = styled.button`
-  padding: 0.5rem 2rem;
-  text-decoration: none;
-  text-align: center;
-  line-height: 1.5rem;
-  font-weight: lighter;
-  outline: none;
-  white-space: nowrap;
-  font-family: Gilroy-ExtraBold, sans-serif;
-  font-size: 1rem;
-  border: none;
-  border-radius: 1.25rem;
-  background: ${({ inverted }) =>
-    inverted ? colors.dirtyRed : colors.secondaryDark};
-  color: ${({ inverted }) => (inverted ? 'white' : 'white')};
-  cursor: pointer;
-  transition: all 0.5s ease;
+export const ModalContainer = styled.div`
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: ${({ theme }) => theme.modalBackground};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+  pointer-events: ${({ isOpen }) => (isOpen ? 'all' : 'none')};
+  transition: 0.5s;
+`;
 
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  &:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-
-    &:hover {
-      transform: none;
-    }
-  }
-`
+export const Content = styled.div`
+  padding: 1rem;
+  box-shadow: ${({ theme }) => theme.modalShadow};
+  border-radius: ${({ theme }) => theme.borderRadius};
+  background: ${({ theme }) => theme.white};
+  transform: ${({ isOpen }) => (isOpen ? 'scale(1)' : 'scale(0.5)')};
+  transition: 0.4s all;
+`;
