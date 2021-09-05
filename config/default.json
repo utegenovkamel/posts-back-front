@@ -1,6 +1,0 @@
-{
-    "port": 5000,
-    "jwtSecret": "kamel test",
-    "mongoUri": "mongodb+srv://kamel:hbUhOEw6tpq6dBtP@cluster0.1qazn.mongodb.net/fullstack-test?retryWrites=true&w=majority",
-    "baseUrl": "http://localhost:5000"
-}

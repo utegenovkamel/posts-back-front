@@ -9,16 +9,6 @@ export const Container = styled.div`
   background: ${({ theme }) => theme.background};
 `;
 
-export const FormContainer = styled.div`
-  width: 25rem;
-  padding: 1rem;
-  align-items: center;
-  background-color: ${({ theme }) => theme.white};
-  border: none;
-  border-radius: 8px;
-  box-shadow: ${({ theme }) => theme.modalShadow};
-`;
-
 export const Line = styled.span`
   display: block;
   border-bottom: 1px solid ${({ theme }) => theme.whiteDark};

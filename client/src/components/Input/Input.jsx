@@ -5,23 +5,23 @@ export const Input = ({
   value,
   placeholder,
   name,
-  type,
+  type = 'text',
   error,
   label,
   ...rest
 }) => {
   return (
     <Container>
-      <Label htmlFor={name}>{label}</Label>
+      {label && <Label htmlFor={name}>{label}</Label>}
       <InputField
         type={type}
         name={name}
-        placeholder={placeholder}
+        placeholder={placeholder || name}
         value={value}
         id={name}
         {...rest}
       />
-      {error && <Error>{error}</Error>}
+      {error && <Error>{error?.message}</Error>}
     </Container>
   );
 };

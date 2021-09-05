@@ -1,34 +1,17 @@
-import styled from 'styled-components'
-import { colors } from 'config/themes'
+import styled from 'styled-components';
+import theme from 'theme';
 
-export const StyledButton = styled.button`
-  padding: 0.5rem 2rem;
+export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  z-index: 100;
   text-decoration: none;
-  text-align: center;
-  line-height: 1.5rem;
-  font-weight: lighter;
-  outline: none;
-  white-space: nowrap;
-  font-family: Gilroy-ExtraBold, sans-serif;
-  font-size: 1rem;
-  border: none;
-  border-radius: 1.25rem;
-  background: ${({ inverted }) =>
-    inverted ? colors.dirtyRed : colors.secondaryDark};
-  color: ${({ inverted }) => (inverted ? 'white' : 'white')};
+`;
+
+export const IconItem = styled.i`
+  margin: auto;
   cursor: pointer;
-  transition: all 0.5s ease;
-
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  &:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-
-    &:hover {
-      transform: none;
-    }
-  }
-`
+  color: ${theme.grey};
+`;

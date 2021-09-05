@@ -17,7 +17,7 @@ const Form = ({ defaultValues, children, onSubmit, validationSchema }) => {
               ...{
                 ...child.props,
                 register: methods.register,
-                errors: methods.formState.errors[child.props.name],
+                error: methods.formState.errors[child.props.name],
                 key: child.props.name,
               },
             })

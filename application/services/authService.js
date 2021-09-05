@@ -12,9 +12,9 @@ const Secret = process.env.JWT_SECRET;
 
 class AuthService {
   async registration(body) {
-    const { Email, Password } = body;
+    const { Username, Firstname, Lastname, Email, Password } = body;
     const candidate = await User.findOne({
-      where: { Email },
+      where: { Username },
     });
 
     if (candidate) {
@@ -22,13 +22,19 @@ class AuthService {
     }
 
     const hashedPassword = await bcrypt.hash(Password, 7);
-    return await User.create({ Email, Password: hashedPassword });
+    return await User.create({
+      Username,
+      Email,
+      Firstname,
+      Lastname,
+      Password: hashedPassword,
+    });
   }
 
   async login(body) {
-    const { Email, Password } = body;
+    const { Username, Password } = body;
     const user = await User.findOne({
-      where: { Email },
+      where: { Username },
     });
 
     if (!user) throw new AuthenticationError('Invalid credentials.');

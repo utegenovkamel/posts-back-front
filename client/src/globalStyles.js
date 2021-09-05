@@ -1,4 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
+import 'react-toastify/dist/ReactToastify.css';
+import theme from 'theme';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -7,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.5;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
-  
+
   *,
   *::before,
   *::after {
@@ -19,21 +21,23 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    color: #fff;
+    color: ${theme.black};
     font-family: 'Gilroy', 'Arial', sans-serif;
+    font-weight: normal;
     min-width: 320px;
   }
-  
+
   @font-face {
     font-family: 'Gilroy';
     font-style: normal;
     font-weight: normal;
     src: url('assets/fonts/Gilroy-Light.otf') format('opentype');
   }
+
   @font-face {
-    font-family: 'Gilroy-ExtraBold';
+    font-family: 'Gilroy';
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
     src: url('assets/fonts/Gilroy-ExtraBold.otf') format('opentype');
   }
 `;

@@ -7,33 +7,18 @@ import Form from 'containers/Form';
 import InputField from 'containers/InputField';
 import * as yup from 'yup';
 import { Container } from './styles';
-import FullPageLoading from 'containers/FullPageLoading';
-import { toast } from 'react-toastify';
 
 const validationSchema = yup.object().shape({
-  Username: yup.string().required(),
-  Firstname: yup.string().required(),
-  Lastname: yup.string().required(),
-  Email: yup.string().required().email(),
-  Password: yup.string().required().min(8),
-  PasswordConfirmation: yup
-    .string()
-    .oneOf([yup.ref('Password'), null], 'Passwords must match'),
+  Title: yup.string().required(),
+  Description: yup.string().required(),
 });
 
-const RegistrationFormModal = ({ isOpen, onClose }) => {
+const CreatePostFormModal = ({ isOpen, onClose }) => {
   const [loading, setLoading] = useState(false);
 
-  const registration = async (formData) => {
+  const registration = async (data) => {
     setLoading(true);
-    const { status } = await connector.post('auth/registration', formData);
-
-    if (status === 409) toast.error('User already exists');
-    if (status === 200) {
-      toast.success('User has been created');
-      onClose();
-    }
-
+    const { status } = await connector.post('auth/login', data);
     setLoading(false);
   };
 
@@ -52,14 +37,14 @@ const RegistrationFormModal = ({ isOpen, onClose }) => {
             placeholder="Repeat password"
             type="password"
           />
+
           <Button type="submit" style="green">
             Registration
           </Button>
         </Form>
       </Modal>
-      <FullPageLoading isLoading={loading} />
     </Container>
   );
 };
 
-export default RegistrationFormModal;
+export default CreatePostFormModal;

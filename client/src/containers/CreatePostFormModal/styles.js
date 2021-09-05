@@ -7,7 +7,4 @@ export const Container = styled.div`
   h3 {
     margin-bottom: 1rem;
   }
-  form > div {
-    margin-bottom: 0.7rem;
-  }
 `;

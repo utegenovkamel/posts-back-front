@@ -12,9 +12,7 @@ const Routes = () => {
     <Suspense fallback={<div>Loading</div>}>
       <Switch>
         <Route exact path="/login" component={LoginPage} />
-        <Route exact path="/">
-          <Redirect to="/login" />
-        </Route>
+        <Route exact path="/" render={() => <Redirect to="/all-posts" />} />
         <PrivateRoutes />
       </Switch>
     </Suspense>

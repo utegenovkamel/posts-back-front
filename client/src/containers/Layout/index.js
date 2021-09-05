@@ -1,12 +1,12 @@
 import React from 'react';
-import Header from 'containers/Header';
-import { Container } from './styles';
+import Navbar from 'containers/Navbar';
 
 const Layout = ({ children }) => {
   return (
-    <Container>
-      <Header />
-    </Container>
+    <>
+      <Navbar />
+      {children}
+    </>
   );
 };
 

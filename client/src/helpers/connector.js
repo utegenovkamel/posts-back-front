@@ -1,4 +1,4 @@
-import { getUser } from 'helpers/user';
+import { getToken } from 'helpers';
 
 const connector = {
   get: async (path, jwt = null) => {
@@ -8,11 +8,10 @@ const connector = {
         {
           method: 'GET',
           headers: {
-            Authorization: `Bearer ${getUser() || jwt}`,
+            Authorization: `Bearer ${getToken() || jwt}`,
           },
         },
       );
-
       return {
         data: response.ok && (await response.json()),
         status: response.status,
@@ -27,26 +26,23 @@ const connector = {
   post: async (path, payload, jwt = null) => {
     try {
       const data = JSON.stringify(payload);
-
       const response = await fetch(
         `${process.env.REACT_APP_ENDPOINT}/${path}`,
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${getUser() || jwt}`,
+            Authorization: `Bearer ${getToken() || jwt}`,
           },
           body: data,
         },
       );
-      if (response.status === 409 || response.status === 400) {
-        return {
-          data: await response.json().catch((error) => null),
-          status: response.status,
-        };
-      }
 
-      if (response.status === 204) {
+      if (
+        response.status === 204 ||
+        response.status === 400 ||
+        response.status === 401
+      ) {
         return {
           ok: response.ok,
           status: response.status,
@@ -55,7 +51,7 @@ const connector = {
 
       return {
         ok: response.ok,
-        data: (response.status === 200 || 201) && (await response.json()),
+        data: await response.json().catch((e) => null),
         status: response.status,
       };
     } catch {
@@ -75,7 +71,7 @@ const connector = {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${getUser() || jwt}`,
+            Authorization: `Bearer ${getToken() || jwt}`,
           },
           body: data,
         },
@@ -114,7 +110,7 @@ const connector = {
         {
           method: 'DELETE',
           headers: {
-            Authorization: `Bearer ${getUser() || jwt}`,
+            Authorization: `Bearer ${getToken() || jwt}`,
           },
         },
       );
@@ -137,7 +133,7 @@ const connector = {
         {
           method: 'GET',
           headers: {
-            Authorization: `Bearer ${getUser()}`,
+            Authorization: `Bearer ${getToken()}`,
           },
         },
       );

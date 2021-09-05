@@ -1,10 +1,23 @@
 [
   {
+    "Username": "zloypups",
+    "Firstname": "Kamel",
+    "Lastname": "Utegenov",
     "Password": "qwerty123",
     "Email": "kamel@mail.ru"
   },
   {
+    "Username": "vanyvany",
+    "Firstname": "Vany",
+    "Lastname": "Petrov",
     "Password": "qwerty123",
-    "Email": "vasy@mail.ru"
+    "Email": "vany@gmail.com"
+  },
+  {
+    "Username": "kanda",
+    "Firstname": "kanda",
+    "Lastname": "kandavi",
+    "Password": "qweqweqwe123",
+    "Email": "asdf@mail.ru"
   }
 ]

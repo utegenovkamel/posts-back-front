@@ -1,8 +1,26 @@
 import React from 'react';
-import LoginPage from 'containers/LoginPage';
+import { useModal } from 'hooks';
+import LoginForm from 'containers/LoginForm';
+import RegistrationFormModal from 'containers/RegistrationFormModal';
+import { Container } from './styles';
+import { connector } from 'helpers';
 
 const Login = () => {
-  return <LoginPage />;
+  const [
+    isOpenRegistrationFormModal,
+    openRegistrationFormModal,
+    closeRegistrationFormModal,
+  ] = useModal();
+
+  return (
+    <Container>
+      <LoginForm onRegistration={openRegistrationFormModal} />
+      <RegistrationFormModal
+        isOpen={isOpenRegistrationFormModal}
+        onClose={closeRegistrationFormModal}
+      />
+    </Container>
+  );
 };
 
 export default Login;
