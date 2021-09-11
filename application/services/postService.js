@@ -1,4 +1,5 @@
-const Post = require('../models/Post');
+const DB = require('../models');
+const Post = DB.sequelize.models.Post;
 
 class PostService {
   async getPosts() {
@@ -16,11 +17,9 @@ class PostService {
   // }
 
   async create(user, body) {
-    const { UserId } = user;
+    const { id: UserId } = user;
     const { Title, Description } = body;
-    console.log('Post', Post);
-    const createdPost = await Post.create({ UserId, Title, Description });
-    return createdPost;
+    return await Post.create({ UserId, Title, Description });
   }
 
   async update(user, params, body) {

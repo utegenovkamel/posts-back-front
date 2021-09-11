@@ -1,7 +1,8 @@
 import React from 'react';
-import { Content, Overlay } from './styles';
 import { useClosePressEsc } from 'hooks';
 import { Icon } from 'components/Icon';
+import Header from './Header';
+import { Content, Overlay } from './styles';
 
 export const Modal = ({ isOpen, onClose, children }) => {
   useClosePressEsc(isOpen, onClose);
@@ -19,3 +20,5 @@ export const Modal = ({ isOpen, onClose, children }) => {
     </Overlay>
   );
 };
+
+Modal.Header = Header;

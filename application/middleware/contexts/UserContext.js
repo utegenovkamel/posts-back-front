@@ -8,7 +8,6 @@ module.exports = async (req, res, next) => {
   }
   try {
     const user = await AuthService.decodeToken(token.slice(7));
-    console.log('user', user);
     req.User = user;
     next();
   } catch (e) {

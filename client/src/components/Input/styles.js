@@ -9,8 +9,9 @@ export const InputField = styled.input`
   display: block;
   text-align: left;
   outline: none;
-  font-size: 1.05rem;
-  padding: 14px 16px;
+  font-size: 1rem;
+  padding: 0.1rem 0.5rem 0 0.5rem;
+  min-height: 40px;
   width: 100%;
   border-radius: ${theme.borderRadius};
   border: 1px solid #dddfe2;

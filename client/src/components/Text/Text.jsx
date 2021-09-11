@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyledText } from './styles';
 
-export const Text = ({ children, as, ...rest }) => {
+export const Text = ({ children, as, center, ...rest }) => {
   return (
-    <StyledText as={as} {...rest}>
+    <StyledText as={as} center={center} {...rest}>
       {children}
     </StyledText>
   );

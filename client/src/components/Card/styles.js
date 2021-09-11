@@ -7,7 +7,7 @@ export const Styled = styled.div`
   border: 1px solid ${theme.grey};
   padding: 1.5rem;
   h3 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
   > div {
     top: 0.5rem;

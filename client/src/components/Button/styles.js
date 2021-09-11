@@ -3,7 +3,7 @@ import theme from 'theme';
 
 export const Styled = styled.button`
   width: 100%;
-  padding: 0.7rem 2rem 0.5rem 2rem;
+  padding: 0.4rem 2rem;
   text-decoration: none;
   text-align: center;
   line-height: 1.5rem;

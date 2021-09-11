@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-const Form = ({ defaultValues, children, onSubmit, validationSchema }) => {
+const Form = ({
+  defaultValues,
+  children,
+  onSubmit,
+  validationSchema,
+  resetForm,
+}) => {
   const methods = useForm({
     defaultValues,
     resolver: yupResolver(validationSchema),
   });
-  const { handleSubmit } = methods;
+  const { handleSubmit, reset } = methods;
+
+  useEffect(() => {
+    reset();
+  }, [resetForm]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

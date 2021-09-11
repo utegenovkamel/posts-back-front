@@ -41,12 +41,10 @@ class AuthService {
 
     const isMatch = await bcrypt.compare(Password, user.Password);
     if (!isMatch) throw new AuthenticationError('Invalid credentials.');
-
     // Token expires in 14 days.
     const jwt = JWT.sign({ UserId: user.id }, Secret, {
       expiresIn: 3600 * 24 * 14,
     });
-
     return { user, jwt };
   }
 
@@ -54,12 +52,10 @@ class AuthService {
   async decodeToken(Token) {
     try {
       const decodedToken = JWT.verify(Token, Secret);
-
       const user = await User.findOne({
         attributes: { exclude: ['Password'] },
         where: { id: decodedToken.UserId },
       });
-
       if (!user)
         throw new AuthenticationError('Invalid token. Bound entity not found.');
       else return user;

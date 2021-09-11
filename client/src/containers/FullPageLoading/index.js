@@ -1,10 +1,10 @@
 import React from 'react';
-import { Overlay } from './styles';
 import Loader from 'components/Loader';
+import { Overlay } from './styles';
 
-const FullPageLoading = ({ isLoading }) => {
+const FullPageLoading = ({ loading }) => {
   return (
-    <Overlay isLoading={isLoading}>
+    <Overlay loading={loading}>
       <Loader center />
     </Overlay>
   );

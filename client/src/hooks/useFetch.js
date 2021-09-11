@@ -39,7 +39,7 @@ const useFetch = (path, options = defaultOptions) => {
     fetchData();
   }, [...deps]);
 
-  return { data, loading, error };
+  return [data, loading, error];
 };
 
 export default useFetch;

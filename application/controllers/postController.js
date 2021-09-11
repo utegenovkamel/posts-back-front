@@ -46,6 +46,7 @@ class PostController {
     try {
       res.json(await PostService.create(req.User, req.body));
     } catch (e) {
+      console.log('e', e);
       if (e instanceof ValidationError)
         next(new UnprocessableEntityError(e.errors));
       else if (e instanceof DatabaseError)

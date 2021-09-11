@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import * as yup from 'yup';
 import { connector } from 'helpers';
 import { Modal } from 'components/Modal';
 import { Text } from 'components/Text';
 import { Button } from 'components/Button';
 import Form from 'containers/Form';
 import InputField from 'containers/InputField';
-import * as yup from 'yup';
-import { Container } from './styles';
 import FullPageLoading from 'containers/FullPageLoading';
-import { toast } from 'react-toastify';
+import { Container } from './styles';
 
 const validationSchema = yup.object().shape({
   Username: yup.string().required(),
@@ -40,7 +40,7 @@ const RegistrationFormModal = ({ isOpen, onClose }) => {
   return (
     <Container>
       <Modal isOpen={isOpen} onClose={onClose}>
-        <Text as="h3">Registration</Text>
+        <Modal.Header>Registration</Modal.Header>
         <Form onSubmit={registration} validationSchema={validationSchema}>
           <InputField name="Username" />
           <InputField name="Firstname" />

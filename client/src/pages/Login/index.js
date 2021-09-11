@@ -3,7 +3,6 @@ import { useModal } from 'hooks';
 import LoginForm from 'containers/LoginForm';
 import RegistrationFormModal from 'containers/RegistrationFormModal';
 import { Container } from './styles';
-import { connector } from 'helpers';
 
 const Login = () => {
   const [
