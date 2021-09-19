@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import theme from 'theme';
+import styled from 'styled-components'
+import theme from 'theme'
 
 export const Styled = styled.button`
   width: 100%;
@@ -17,8 +17,8 @@ export const Styled = styled.button`
   color: ${theme.white};
   border-radius: ${theme.borderRadius};
 
-  background: ${({ style }) => style.colour};
+  background: ${({ color }) => color.colour};
   &:hover {
-    background: ${({ style }) => style.hover};
+    background: ${({ color }) => color.hover};
   }
-`;
+`

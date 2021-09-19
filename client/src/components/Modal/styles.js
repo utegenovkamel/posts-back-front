@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import theme from 'theme';
+import styled from 'styled-components'
+import theme from 'theme'
 
 export const Overlay = styled.div`
   height: 100vh;
@@ -20,7 +20,7 @@ export const Overlay = styled.div`
   > div {
     position: absolute;
   }
-`;
+`
 
 export const Content = styled.div`
   max-width: 70vw;
@@ -38,4 +38,4 @@ export const Content = styled.div`
     top: 0.5rem;
     right: 0.5rem;
   }
-`;
+`

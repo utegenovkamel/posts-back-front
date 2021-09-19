@@ -1,2 +1,12 @@
-export { Text } from 'components/Text/Text';
-export { Text as default } from 'components/Text/Text';
+import React from 'react'
+import { StyledText } from './styles'
+
+const Text = ({ children, as, center, ...rest }) => {
+  return (
+    <StyledText as={as} center={center} {...rest}>
+      {children}
+    </StyledText>
+  )
+}
+
+export default Text

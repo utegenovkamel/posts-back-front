@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import theme from 'theme';
+import styled from 'styled-components'
+import theme from 'theme'
 
 export const Container = styled.div`
   position: relative;
@@ -9,10 +9,10 @@ export const Container = styled.div`
   align-items: center;
   z-index: 100;
   text-decoration: none;
-`;
+`
 
 export const IconItem = styled.i`
   margin: auto;
   cursor: pointer;
   color: ${theme.grey};
-`;
+`

@@ -1,8 +1,6 @@
-import React from 'react';
-import { Container } from './styles';
+import React from 'react'
+import { Container } from './styles'
 
-const MyPosts = () => {
-  return <Container></Container>;
-};
+const MyPosts = () => <Container />
 
-export default MyPosts;
+export default MyPosts

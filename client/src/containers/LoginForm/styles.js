@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import theme from 'theme';
+import styled from 'styled-components'
+import theme from 'theme'
 
 export const FormContainer = styled.div`
   width: 25rem;
@@ -12,7 +12,7 @@ export const FormContainer = styled.div`
   > form > div {
     margin-bottom: 0.7rem;
   }
-`;
+`
 
 export const Line = styled.span`
   display: block;
@@ -20,4 +20,4 @@ export const Line = styled.span`
   width: 100%;
   height: 1px;
   margin: 1rem 0;
-`;
+`

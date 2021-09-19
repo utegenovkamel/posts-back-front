@@ -1,13 +1,11 @@
-import React from 'react';
-import Loader from 'components/Loader';
-import { Overlay } from './styles';
+import React from 'react'
+import Loader from 'components/Loader'
+import { Overlay } from './styles'
 
-const FullPageLoading = ({ loading }) => {
-  return (
-    <Overlay loading={loading}>
-      <Loader center />
-    </Overlay>
-  );
-};
+const FullPageLoading = ({ loading }) => (
+  <Overlay loading={loading}>
+    <Loader center />
+  </Overlay>
+)
 
-export default FullPageLoading;
+export default FullPageLoading

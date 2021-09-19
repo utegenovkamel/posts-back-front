@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
-import 'react-toastify/dist/ReactToastify.css';
-import theme from 'theme';
+import { createGlobalStyle } from 'styled-components'
+import 'react-toastify/dist/ReactToastify.css'
+import theme from 'theme'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -40,6 +40,6 @@ const GlobalStyle = createGlobalStyle`
     font-weight: bold;
     src: url('assets/fonts/Gilroy-ExtraBold.otf') format('opentype');
   }
-`;
+`
 
-export default GlobalStyle;
+export default GlobalStyle

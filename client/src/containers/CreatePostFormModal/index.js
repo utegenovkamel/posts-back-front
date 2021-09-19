@@ -1,37 +1,35 @@
-import React, { useContext, useState } from 'react';
-import * as yup from 'yup';
-import { toast } from 'react-toastify';
-import { connector } from 'helpers';
-import { Modal } from 'components/Modal';
-import { Text } from 'components/Text';
-import { Button } from 'components/Button';
-import Form from 'containers/Form';
-import InputField from 'containers/InputField';
-import FullPageLoading from 'containers/FullPageLoading';
-import { Container } from './styles';
-import { StateContext } from 'context/currentUser';
+import React, { useContext } from 'react'
+import * as yup from 'yup'
+import { toast } from 'react-toastify'
+import { connector } from 'helpers'
+import Modal from 'components/Modal'
+import Button from 'components/Button'
+import Form from 'containers/Form'
+import InputField from 'containers/InputField'
+import { StateContext } from 'context/currentUser'
+import { Container } from './styles'
 
 const validationSchema = yup.object().shape({
   Title: yup.string().required(),
   Description: yup.string().required(),
-});
+})
 
 const CreatePostFormModal = ({ isOpen, onClose }) => {
   const { updateContent, setUpdateContent, setLoading } =
-    useContext(StateContext);
+    useContext(StateContext)
 
   const registration = async (data) => {
-    setLoading(true);
+    setLoading(true)
 
-    const { status } = await connector.post('app/post', data);
+    const { status } = await connector.post('app/post', data)
     if (status === 200) {
-      toast.success('Post created');
-      setUpdateContent((prev) => !prev);
-      onClose();
+      toast.success('Post created')
+      setUpdateContent((prev) => !prev)
+      onClose()
     }
 
-    setLoading(false);
-  };
+    setLoading(false)
+  }
 
   return (
     <Container>
@@ -45,13 +43,13 @@ const CreatePostFormModal = ({ isOpen, onClose }) => {
           <InputField name="Title" />
           <InputField name="Description" />
 
-          <Button type="submit" style="green">
+          <Button type="submit" color="green">
             Create
           </Button>
         </Form>
       </Modal>
     </Container>
-  );
-};
+  )
+}
 
-export default CreatePostFormModal;
+export default CreatePostFormModal

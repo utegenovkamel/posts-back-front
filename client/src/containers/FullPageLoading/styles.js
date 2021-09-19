@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import theme from 'theme';
+import styled from 'styled-components'
+import theme from 'theme'
 
 export const Overlay = styled.div`
   z-index: 15;
@@ -21,4 +21,4 @@ export const Overlay = styled.div`
     transform: ${({ loading }) => (loading ? 'scale(1)' : 'scale(0)')};
     transition: transform 0.4s ease;
   }
-`;
+`

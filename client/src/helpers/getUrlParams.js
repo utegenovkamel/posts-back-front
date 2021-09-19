@@ -1,17 +1,14 @@
 const getUrlParams = (params = {}) => {
-  const upperCaseFirst = (str) => {
-    if (!str) return str;
-    return str[0].toUpperCase() + str.slice(1);
-  };
+  const upperCaseFirst = (str) => str[0].toUpperCase() + str.slice(1)
 
-  const urlParams = new URLSearchParams();
+  const urlParams = new URLSearchParams()
 
-  for (let key in params) {
-    if (params[key] !== null) {
-      urlParams.append(upperCaseFirst(key), params[key]);
+  Object.entries(params).forEach(([key, value]) => {
+    if (value !== null) {
+      urlParams.append(upperCaseFirst(key), value)
     }
-  }
-  return urlParams.toString();
-};
+  })
+  return urlParams.toString()
+}
 
-export default getUrlParams;
+export default getUrlParams

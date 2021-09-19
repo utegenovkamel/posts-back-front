@@ -1,5 +1,5 @@
-import React from 'react';
-import { LoaderWrapper, SpinnerImg } from './styles';
+import React from 'react'
+import { LoaderWrapper, SpinnerImg } from './styles'
 
 const Loader = ({ center, absolute = false, top, bottom, left, right }) => {
   return (
@@ -13,7 +13,7 @@ const Loader = ({ center, absolute = false, top, bottom, left, right }) => {
     >
       <SpinnerImg />
     </LoaderWrapper>
-  );
-};
+  )
+}
 
-export default Loader;
+export default Loader

@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import React, { useEffect } from 'react'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 const Form = ({
   defaultValues,
@@ -12,12 +12,12 @@ const Form = ({
   const methods = useForm({
     defaultValues,
     resolver: yupResolver(validationSchema),
-  });
-  const { handleSubmit, reset } = methods;
+  })
+  const { handleSubmit, reset } = methods
 
   useEffect(() => {
-    reset();
-  }, [resetForm]);
+    reset()
+  }, [resetForm])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -31,9 +31,9 @@ const Form = ({
                 key: child.props.name,
               },
             })
-          : child;
+          : child
       })}
     </form>
-  );
-};
-export default Form;
+  )
+}
+export default Form

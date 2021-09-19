@@ -1,45 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import { connector } from 'helpers';
-import { getUrlParams } from 'helpers';
+import { useState, useEffect } from 'react'
+import { connector, getUrlParams } from 'helpers'
 
 const defaultOptions = {
   jwt: null,
   deps: [],
   params: {},
-};
+}
 
 // use it if you wanna fetch with GET method
 const useFetch = (path, options = defaultOptions) => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
 
-  if (!options.deps) options.deps = [];
-  const { deps, params, jwt } = options;
+  const { deps, params, jwt } = options
 
   useEffect(() => {
-    if (!path) return;
+    if (!path) return
     const fetchData = async () => {
-      setLoading(true);
+      setLoading(true)
 
-      const { data } = await connector.get(
+      const { data: fetchedData } = await connector.get(
         `${path}?${getUrlParams(params)}`,
-        jwt,
-      );
+        jwt
+      )
 
-      if (data) {
-        setData(data);
+      if (fetchedData) {
+        setData(fetchedData)
       } else {
-        setError(true);
+        setError(true)
       }
 
-      setLoading(false);
-    };
+      setLoading(false)
+    }
 
-    fetchData();
-  }, [...deps]);
+    fetchData()
+  }, [...deps])
 
-  return [data, loading, error];
-};
+  return [data, loading, error]
+}
 
-export default useFetch;
+export default useFetch

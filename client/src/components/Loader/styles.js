@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import is from 'styled-is';
-import { ReactComponent as Spinner } from 'assets/img/spinner.svg';
+import styled from 'styled-components'
+import is from 'styled-is'
+import { ReactComponent as Spinner } from 'assets/img/spinner.svg'
 
 export const LoaderWrapper = styled.div`
   position: ${({ absolute }) => (absolute ? 'absolute' : 'static')};
@@ -16,7 +16,7 @@ export const LoaderWrapper = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
   `};
-`;
+`
 
 export const SpinnerImg = styled(Spinner)`
   animation: loader 1.1s infinite linear;
@@ -28,4 +28,4 @@ export const SpinnerImg = styled(Spinner)`
       transform: rotate(360deg);
     }
   }
-`;
+`

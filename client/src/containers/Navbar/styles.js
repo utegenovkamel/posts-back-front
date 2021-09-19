@@ -1,12 +1,12 @@
-import styled from 'styled-components';
-import theme from 'theme';
-import { GridContainer } from 'components/GridContainer';
+import styled from 'styled-components'
+import theme from 'theme'
+import GridContainer from 'components/GridContainer'
 
 export const Header = styled.div`
   width: 100%;
   padding: 1rem 0px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-`;
+`
 
 export const Container = styled(GridContainer)`
   display: flex;
@@ -14,7 +14,7 @@ export const Container = styled(GridContainer)`
   button {
     max-width: 12rem;
   }
-`;
+`
 
 export const Links = styled.div`
   display: flex;
@@ -31,4 +31,4 @@ export const Links = styled.div`
       margin-right: 2rem;
     }
   }
-`;
+`

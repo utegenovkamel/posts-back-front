@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import theme from 'theme';
+import styled from 'styled-components'
+import theme from 'theme'
 
 export const Styled = styled.div`
   position: relative;
@@ -14,4 +14,4 @@ export const Styled = styled.div`
     right: 0.5rem;
     position: absolute;
   }
-`;
+`

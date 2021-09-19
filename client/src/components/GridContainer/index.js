@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-export const GridContainer = styled.div`
+const GridContainer = styled.div`
   max-width: 1140px;
   padding: 0 15px;
   margin: 0 auto;
@@ -19,4 +19,6 @@ export const GridContainer = styled.div`
       max-width: 540px;
     }
   }
-`;
+`
+
+export default GridContainer
