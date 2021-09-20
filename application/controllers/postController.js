@@ -22,7 +22,7 @@ class PostController {
 
   async getMyPosts(req, res, next) {
     try {
-      const result = await PostService.getMyPosts(req.user);
+      const result = await PostService.getMyPosts(req.User);
       if (result) res.json(result);
       else next(new NotFoundError());
     } catch (err) {

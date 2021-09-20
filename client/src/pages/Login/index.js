@@ -1,7 +1,7 @@
+import React from 'react'
+import { useModal } from 'hooks'
 import LoginForm from 'containers/LoginForm'
 import RegistrationFormModal from 'containers/RegistrationFormModal'
-import { useModal } from 'hooks'
-import React from 'react'
 import { Container } from './styles'
 
 const Login = () => {

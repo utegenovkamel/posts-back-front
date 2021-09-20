@@ -7,7 +7,7 @@ class PostService {
   }
 
   async getMyPosts(user) {
-    const { UserId } = user;
+    const { id: UserId } = user;
     return await Post.findAll({ where: { UserId } });
   }
 

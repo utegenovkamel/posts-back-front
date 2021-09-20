@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -15,14 +16,14 @@ const Form = ({
   })
   const { handleSubmit, reset } = methods
 
-  useEffect(() => {
-    reset()
-  }, [resetForm])
+  // useEffect(() => {
+  //   reset()
+  // }, [resetForm])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {React.Children.map(children, (child) => {
-        return child.props.name
+      {React.Children.map(children, (child) =>
+        child.props.name
           ? React.createElement(child.type, {
               ...{
                 ...child.props,
@@ -32,7 +33,7 @@ const Form = ({
               },
             })
           : child
-      })}
+      )}
     </form>
   )
 }

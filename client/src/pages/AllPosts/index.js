@@ -1,17 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useFetch } from 'hooks'
-import { StateContext } from 'context/currentUser'
-import Card from 'components/Card'
-import Loader from 'components/Loader'
-import Text from 'components/Text'
+import { Card, Loader, Text } from 'components'
 import { Container } from './styles'
 
 const AllPosts = () => {
-  const { updateContent } = useContext(StateContext)
-
-  const [posts, loading, error] = useFetch('app/post', {
-    deps: [updateContent],
-  })
+  const [posts, loading, error] = useFetch('app/post')
 
   return (
     <Container>

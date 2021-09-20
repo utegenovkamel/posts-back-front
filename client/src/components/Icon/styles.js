@@ -15,4 +15,5 @@ export const IconItem = styled.i`
   margin: auto;
   cursor: pointer;
   color: ${theme.grey};
+  font-size: ${({ size }) => size || 'auto'};
 `

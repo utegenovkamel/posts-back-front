@@ -2,28 +2,24 @@ import React from 'react'
 import { Container, InputField, Error, Label } from './styles'
 
 const Input = ({
-  value,
+  register,
   placeholder,
   name,
   type = 'text',
   error,
   label,
-  ...rest
-}) => {
-  return (
-    <Container>
-      {label && <Label htmlFor={name}>{label}</Label>}
-      <InputField
-        type={type}
-        name={name}
-        placeholder={placeholder || name}
-        value={value}
-        id={name}
-        {...rest}
-      />
-      {error && <Error>{error?.message}</Error>}
-    </Container>
-  )
-}
+}) => (
+  <Container>
+    {label && <Label htmlFor={name}>{label}</Label>}
+    <InputField
+      type={type}
+      placeholder={placeholder || name}
+      id={name}
+      name={name}
+      {...register(name)}
+    />
+    {error && <Error>{error?.message}</Error>}
+  </Container>
+)
 
 export default Input

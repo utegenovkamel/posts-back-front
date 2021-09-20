@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import Routes from 'routes'
 import GlobalStyle from 'globalStyles'
-import { StateContext } from 'context/currentUser'
+import { StateContext } from 'context'
 import FullPageLoading from 'containers/FullPageLoading'
 
 const App = () => {

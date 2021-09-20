@@ -1,15 +1,12 @@
 export default {
-  main: {
-    colour: '#1877f2',
-    hover: '#146adb',
-  },
-  green: {
-    colour: '#42b72a',
-    hover: '#36a420',
-  },
+  main: '#1877f2',
+  mainHover: '#146adb',
+  green: '#42b72a',
+  greenHover: '#36a420',
+  grey: '#9ba2a8',
+  greyHover: '#8c9297',
   white: '#fff',
   black: '#201f1f',
-  grey: '#5F6771',
   red: '#ca1313',
   background: '#f0f2f5',
   borderRadius: '0.375rem',

@@ -1,14 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import theme from 'theme'
 import { Styled } from './styles'
 
 const propTypes = {
-  color: PropTypes.oneOf(['main', 'green']),
+  color: PropTypes.oneOf(['main', 'green', 'grey']),
 }
 
-const Button = ({ children, color = 'main', ...rest }) => (
-  <Styled color={theme[color]} {...rest}>
+const Button = ({ color = 'main', fullWidth = false, children, ...rest }) => (
+  <Styled color={color} fullWidth={fullWidth} {...rest}>
     {children}
   </Styled>
 )

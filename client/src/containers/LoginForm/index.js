@@ -3,15 +3,14 @@ import * as yup from 'yup'
 import { toast } from 'react-toastify'
 import { useHistory } from 'react-router'
 import { connector, setToken } from 'helpers'
-import Button from 'components/Button'
-import InputField from 'containers/InputField'
+import { Button, Input } from 'components'
 import Form from 'containers/Form'
 import FullPageLoading from 'containers/FullPageLoading'
 import { FormContainer, Line } from './styles'
 
 const validationSchema = yup.object().shape({
-  Username: yup.string().required(),
-  Password: yup.string().required(),
+  Username: yup.string(),
+  Password: yup.string(),
 })
 
 const LoginForm = ({ onRegistration }) => {
@@ -34,12 +33,14 @@ const LoginForm = ({ onRegistration }) => {
   return (
     <FormContainer>
       <Form onSubmit={login} validationSchema={validationSchema}>
-        <InputField name="Username" />
-        <InputField name="Password" type="password" />
-        <Button type="submit">Login</Button>
+        <Input name="Username" />
+        <Input name="Password" type="password" />
+        <Button type="submit" color="green" fullWidth>
+          Login
+        </Button>
       </Form>
       <Line />
-      <Button color="green" onClick={onRegistration}>
+      <Button fullWidth onClick={onRegistration}>
         Registration
       </Button>
       <FullPageLoading isLoading={loading} />

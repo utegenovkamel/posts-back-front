@@ -2,11 +2,9 @@ import React, { useContext } from 'react'
 import * as yup from 'yup'
 import { toast } from 'react-toastify'
 import { connector } from 'helpers'
-import Modal from 'components/Modal'
-import Button from 'components/Button'
+import { StateContext } from 'context'
+import { Button, Modal, Input } from 'components'
 import Form from 'containers/Form'
-import InputField from 'containers/InputField'
-import { StateContext } from 'context/currentUser'
 import { Container } from './styles'
 
 const validationSchema = yup.object().shape({
@@ -40,10 +38,10 @@ const CreatePostFormModal = ({ isOpen, onClose }) => {
           validationSchema={validationSchema}
           resetForm={updateContent}
         >
-          <InputField name="Title" />
-          <InputField name="Description" />
+          <Input name="Title" />
+          <Input name="Description" />
 
-          <Button type="submit" color="green">
+          <Button type="submit" color="green" fullWidth>
             Create
           </Button>
         </Form>

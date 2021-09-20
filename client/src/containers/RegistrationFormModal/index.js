@@ -2,10 +2,8 @@ import React, { useState } from 'react'
 import { toast } from 'react-toastify'
 import * as yup from 'yup'
 import { connector } from 'helpers'
-import Modal from 'components/Modal'
-import Button from 'components/Button'
+import { Modal, Button, Input } from 'components'
 import Form from 'containers/Form'
-import InputField from 'containers/InputField'
 import FullPageLoading from 'containers/FullPageLoading'
 import { Container } from './styles'
 
@@ -41,17 +39,17 @@ const RegistrationFormModal = ({ isOpen, onClose }) => {
       <Modal isOpen={isOpen} onClose={onClose}>
         <Modal.Header>Registration</Modal.Header>
         <Form onSubmit={registration} validationSchema={validationSchema}>
-          <InputField name="Username" />
-          <InputField name="Firstname" />
-          <InputField name="Lastname" />
-          <InputField name="Email" />
-          <InputField name="Password" type="password" />
-          <InputField
+          <Input name="Username" />
+          <Input name="Firstname" />
+          <Input name="Lastname" />
+          <Input name="Email" />
+          <Input name="Password" type="password" />
+          <Input
             name="PasswordConfirmation"
             placeholder="Repeat password"
             type="password"
           />
-          <Button type="submit" color="green">
+          <Button type="submit" color="green" fullWidth>
             Registration
           </Button>
         </Form>

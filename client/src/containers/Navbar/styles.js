@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import theme from 'theme'
-import GridContainer from 'components/GridContainer'
+import { GridContainer } from 'components'
 
 export const Header = styled.div`
   width: 100%;
@@ -23,12 +23,13 @@ export const Links = styled.div`
     color: ${theme.black};
     font-size: 1.5rem;
     transition: color 0.3s ease-in-out;
-    :hover {
-      transition: color 0.3s ease-in-out;
-      color: ${theme.main.colour};
-    }
     :first-child {
       margin-right: 2rem;
     }
   }
+  a.active {
+    color: ${theme.main};
+  }
 `
+
+export const IconContainer = styled.div``

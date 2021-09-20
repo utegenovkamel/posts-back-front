@@ -24,7 +24,7 @@ export const Overlay = styled.div`
 
 export const Content = styled.div`
   max-width: 70vw;
-  min-width: 50vw;
+  min-width: 35vw;
   position: relative;
   padding: 1.5rem;
   box-shadow: ${theme.modalShadow};

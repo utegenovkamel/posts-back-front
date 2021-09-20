@@ -1,9 +1,10 @@
 import { useState } from 'react'
 
-const useModal = () => {
+const useModal = ({ setSelectedItem }) => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const openModal = () => {
+  const openModal = (selectedItem) => {
+    setSelectedItem(selectedItem)
     setIsOpen(true)
   }
 

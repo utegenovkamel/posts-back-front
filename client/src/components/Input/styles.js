@@ -15,6 +15,10 @@ export const InputField = styled.input`
   width: 100%;
   border-radius: ${theme.borderRadius};
   border: 1px solid #dddfe2;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px #cbd6ee;
+  }
 `
 
 export const Error = styled.span`
