@@ -9,7 +9,7 @@
     "client": "npm run start --prefix client",
     "client:install": "npm install --prefix client",
     "client:build": "npm run build --prefix client",
-    "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\"",
+    "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"yarn run client\"",
     "db-fresh": "node scripts/db/db-fresh.js",
     "db-sync": "node scripts/db/db-sync.js",
     "db-seed": "node scripts/db/db-seed.js",

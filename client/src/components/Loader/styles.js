@@ -1,5 +1,4 @@
-import styled from 'styled-components'
-import is from 'styled-is'
+import styled, { css } from 'styled-components'
 import { ReactComponent as Spinner } from 'assets/img/spinner.svg'
 
 export const LoaderWrapper = styled.div`
@@ -10,12 +9,14 @@ export const LoaderWrapper = styled.div`
   left: ${({ left }) => left || 'auto'};
   right: ${({ right }) => right || 'auto'};
 
-  ${is('center')`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  `};
+  ${({ center }) =>
+    center &&
+    css`
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    `}
 `
 
 export const SpinnerImg = styled(Spinner)`

@@ -55,7 +55,7 @@ const PostFormModal = ({ isOpen, onClose, postId }) => {
           onSubmit={handleSubmit}
           validationSchema={validationSchema}
           resetForm={updateContent}
-          defaultValues={postForEdit}
+          defaultValues={postId ? postForEdit : {}}
         >
           <Input name="Title" />
           <Input name="Description" />
