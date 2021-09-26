@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { logDOM } from '@testing-library/react'
 
 const Form = ({
   defaultValues,
@@ -11,14 +12,18 @@ const Form = ({
   resetForm,
 }) => {
   const methods = useForm({
-    defaultValues,
+    defaultValues: defaultValues,
     resolver: yupResolver(validationSchema),
   })
   const { handleSubmit, reset } = methods
 
-  // useEffect(() => {
-  //   reset()
-  // }, [resetForm])
+  useEffect(() => {
+    reset()
+  }, [resetForm])
+
+  useEffect(() => {
+    reset(defaultValues)
+  }, [defaultValues])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

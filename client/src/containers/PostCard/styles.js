@@ -16,14 +16,24 @@ export const Styled = styled.div`
   }
 `
 
-export const Item = styled.div`
+export const TooltipItem = styled.div`
   padding: 0.3rem 0.3rem 0.3rem 0.3rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  &:not(:last-of-type) {
+  border-radius: 5px;
+  & {
     border-bottom: 1px solid ${theme.grey};
     :hover {
       border-bottom: 1px solid ${theme.main};
     }
+    :active {
+      background: #f5f5f5;
+    }
   }
+`
+
+export const TooltipWrapper = styled.div`
+  border: 1px solid ${theme.grey};
+  border-radius: 5px;
+  border-bottom: none;
 `

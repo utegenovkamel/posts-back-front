@@ -9,12 +9,20 @@ const propTypes = {
     'bottom-left',
     'bottom-right',
   ]),
+  on: PropTypes.oneOf(['hover', 'focus']),
 }
 
-const Tooltip = ({ position = 'top-left', trigger, children }) => (
-  <Container>
+const Tooltip = ({
+  trigger,
+  position = 'top-left',
+  on = 'hover',
+  children,
+}) => (
+  <Container showContent={on}>
     {trigger}
-    <Content position={position}>{children}</Content>
+    <Content position={position} onlyText={on === 'hover'}>
+      {children}
+    </Content>
   </Container>
 )
 

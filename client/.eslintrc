@@ -37,6 +37,7 @@
     "react/require-default-props": 0,
     "react/jsx-props-no-spreading": 0,
     "arrow-body-style": 1,
-    "no-unused-vars": 1
+    "no-unused-vars": 1,
+    "consistent-return":0
   }
 }

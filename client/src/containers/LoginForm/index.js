@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import * as yup from 'yup'
 import { toast } from 'react-toastify'
 import { useHistory } from 'react-router'
 import { connector, setToken } from 'helpers'
+import { StateContext } from 'context'
 import { Button, Input } from 'components'
 import Form from 'containers/Form'
-import FullPageLoading from 'containers/FullPageLoading'
 import { FormContainer, Line } from './styles'
 
 const validationSchema = yup.object().shape({
@@ -14,8 +14,8 @@ const validationSchema = yup.object().shape({
 })
 
 const LoginForm = ({ onRegistration }) => {
-  const [loading, setLoading] = useState(false)
   const history = useHistory()
+  const { setLoading } = useContext(StateContext)
 
   const login = async (formData) => {
     setLoading(true)
@@ -43,7 +43,6 @@ const LoginForm = ({ onRegistration }) => {
       <Button fullWidth onClick={onRegistration}>
         Registration
       </Button>
-      <FullPageLoading isLoading={loading} />
     </FormContainer>
   )
 }

@@ -22,8 +22,13 @@ class PostService {
     return await Post.create({ UserId, Title, Description });
   }
 
+  async getMyOnePost(params) {
+    const { PostId } = params;
+    return await Post.findOne({ where: { id: PostId } });
+  }
+
   async update(user, params, body) {
-    const { UserId } = user;
+    const { id: UserId } = user;
     const { PostId } = params;
     const { Title, Description } = body;
 
@@ -33,9 +38,10 @@ class PostService {
     );
   }
 
-  async delete(params) {
+  async delete(params, user) {
     const { PostId } = params;
-    return await Post.destroy({ where: { id: PostId } });
+    const { id: UserId } = user;
+    return await Post.destroy({ where: { id: PostId, UserId } });
   }
 }
 

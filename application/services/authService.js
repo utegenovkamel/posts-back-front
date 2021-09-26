@@ -17,10 +17,6 @@ class AuthService {
       where: { Username },
     });
 
-    if (candidate) {
-      throw new ConflictError('User already exists');
-    }
-
     const hashedPassword = await bcrypt.hash(Password, 7);
     return await User.create({
       Username,

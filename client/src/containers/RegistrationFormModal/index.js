@@ -23,12 +23,17 @@ const RegistrationFormModal = ({ isOpen, onClose }) => {
 
   const registration = async (formData) => {
     setLoading(true)
-    const { status } = await connector.post('auth/registration', formData)
+    const { data, status } = await connector.post('auth/registration', formData)
 
-    if (status === 409) toast.error('User already exists')
     if (status === 200) {
       toast.success('User has been created')
       onClose()
+    }
+
+    if (status === 422) {
+      if (data[0].path === 'Username') return toast.error('User already exists')
+      if (data[0].path === 'Email')
+        return toast.error('This email address is already in use')
     }
 
     setLoading(false)

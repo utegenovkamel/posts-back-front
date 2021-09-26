@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFetch } from 'hooks'
-import { Card, Loader, Text } from 'components'
+import { Loader, Text } from 'components'
+import PostCard from 'containers/PostCard'
 import { Container } from './styles'
 
 const AllPosts = () => {
@@ -10,7 +11,11 @@ const AllPosts = () => {
     <Container>
       {loading && <Loader center />}
       {posts?.map((post) => (
-        <Card title={post.Title} description={post.Description} />
+        <PostCard
+          title={post.Title}
+          description={post.Description}
+          hideTooltip
+        />
       ))}
       {error && <Text center>No posts</Text>}
     </Container>

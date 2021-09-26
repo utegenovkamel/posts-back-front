@@ -1,23 +1,49 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import theme from 'theme'
 
 export const Container = styled.button`
   position: relative;
-  background-color: transparent;
   border: none;
-  &:focus {
-    & > div:last-child {
-      opacity: 1;
-      pointer-events: all;
+  background: transparent;
+  ${({ showContent }) => {
+    console.log('on', showContent)
+    if (showContent === 'hover') {
+      return css`
+        &:hover {
+          & > div:last-child {
+            opacity: 1;
+            pointer-events: all;
+            transition: opacity 0.2s ease-in-out;
+          }
+        }
+      `
     }
-  }
+    if (showContent === 'focus') {
+      return css`
+        &:focus {
+          & > div:last-child {
+            opacity: 1;
+            pointer-events: all;
+            transition: opacity 0.2s ease-in-out;
+          }
+        }
+      `
+    }
+  }}
 `
 export const Content = styled.div`
   opacity: 0;
   pointer-events: none;
-  border-radius: 5px;
-  border: 1px solid ${theme.grey};
+  transition: opacity 0.2s ease-in-out;
   position: absolute;
+  ${({ onlyText }) =>
+    onlyText &&
+    css`
+      border: 1px solid ${theme.grey};
+      padding: 0.25rem;
+      background: white;
+      border-radius: 5px;
+    `}
   top: ${({ position }) => position.includes('bottom') && '100%'};
   bottom: ${({ position }) => position.includes('top') && '100%'};
   left: ${({ position }) => position.includes('right') && '100%'};

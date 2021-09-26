@@ -1,21 +1,16 @@
 import React, { useContext, useState } from 'react'
 import { useFetch, useModal } from 'hooks'
 import { StateContext } from 'context'
-import { Loader, Button, Card, Text } from 'components'
-import CreatePostFormModal from 'containers/CreatePostFormModal'
-import DeleteModal from 'containers/DeleteModal'
+import { Loader, Button, Text } from 'components'
+import PostCard from 'containers/PostCard'
+import PostFormModal from 'containers/PostFormModal'
 import { Container } from './styles'
 
 const MyPosts = () => {
-  const [postId, setPostId] = useState(null)
-  const [isOpenCreatePostModal, openCreatePostModal, closeCreatePostModal] =
-    useModal()
-  const [isOpenEditPostModal, openEditPostModal, closeEditPostModal] =
-    useModal()
-  const [isOpenDeletePostModal, openDeletePostModal, closeDeletePostModal] =
-    useModal(setPostId)
-
   const { updateContent } = useContext(StateContext)
+  const [selectedPostId, setSelectedPostId] = useState(null)
+  const [isOpenPostFormModal, openPostFormModal, closePostFormModal] =
+    useModal(setSelectedPostId)
 
   const [posts, loading, error] = useFetch('app/post/my', {
     deps: [updateContent],
@@ -24,23 +19,21 @@ const MyPosts = () => {
   return (
     <Container>
       {loading && <Loader center />}
-      <Button onClick={openCreatePostModal}>Create post</Button>
+      <Button onClick={() => openPostFormModal()}>Create post</Button>
       {posts?.map((post) => (
-        <Card
+        <PostCard
           title={post.Title}
           description={post.Description}
-          id={post.id}
-          onOpenDeleteModal={openDeletePostModal}
+          postId={post.id}
+          openEditModal={openPostFormModal}
         />
       ))}
       {error && <Text center>No posts</Text>}
-      <CreatePostFormModal
-        isOpen={isOpenCreatePostModal}
-        onClose={closeCreatePostModal}
-      />
-      <DeleteModal
-        isOpen={isOpenDeletePostModal}
-        onClose={closeDeletePostModal}
+
+      <PostFormModal
+        isOpen={isOpenPostFormModal}
+        onClose={closePostFormModal}
+        postId={selectedPostId}
       />
     </Container>
   )
