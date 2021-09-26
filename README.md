@@ -12,43 +12,56 @@ https://docs.google.com/document/d/1SDBUgOSWrDZXLvqxs0aRIKHVeL3vssM0nOKbtOMkdXo/
 ```javascript
 NodeJs
 {
-  "dependencies": {
-        "bcryptjs": "^2.4.3",
-        "config": "^3.2.4",
-        "cors": "^2.8.5",
-        "express": "^4.17.1",
-        "express-validator": "^6.3.0",
-        "jsonwebtoken": "^8.5.1",
-        "mongoose": "^5.8.1"
-    },
-    "devDependencies": {
-        "concurrently": "^5.0.2",
-        "cross-env": "^6.0.3",
-        "nodemon": "^2.0.2"
-    }
+    "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.6.5"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.2",
+    "cross-env": "^6.0.3",
+    "nodemon": "^2.0.2",
+    "prettier": "2.3.2"
+  }
 }
 
 React
 {
   "dependencies": {
-        "@testing-library/jest-dom": "^5.11.4",
-        "@testing-library/react": "^11.1.0",
-        "@testing-library/user-event": "^12.1.10",
-        "@types/jest": "^26.0.15",
-        "@types/node": "^12.0.0",
-        "@types/react": "^17.0.0",
-        "@types/react-dom": "^17.0.0",
-        "@types/react-router-dom": "^5.1.7",
-        "axios": "^0.21.1",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "react-router-dom": "^5.2.0",
-        "react-scripts": "4.0.3",
-        "styled-components": "^5.2.3",
-        "styled-is": "^1.3.0",
-        "styled-system": "^5.1.5",
-        "typescript": "^4.1.2",
-        "web-vitals": "^1.0.1"
-    }
+    "@hookform/resolvers": "^2.8.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "babel-loader": "^8.2.2",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hook-form": "^7.12.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "react-toastify": "^8.0.2",
+    "styled-components": "^5.3.0",
+    "web-vitals": "^1.0.1",
+    "yup": "^0.32.9"
+  },
+   "devDependencies": {
+    "eslint": "^7.32.0",
+    "prettier": "^2.4.1",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.25.2",
+    "eslint-plugin-react-hooks": "^4.2.0"
+  }
 }
 ```
