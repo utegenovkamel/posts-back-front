@@ -10,7 +10,7 @@ https://docs.google.com/document/d/1SDBUgOSWrDZXLvqxs0aRIKHVeL3vssM0nOKbtOMkdXo/
 * server http://localhost:5000
 
 ```javascript
-NodeJs
+NodeJs, express, postgresql, sequelize
 {
     "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -32,7 +32,7 @@ NodeJs
   }
 }
 
-React
+React, styled components
 {
   "dependencies": {
     "@hookform/resolvers": "^2.8.0",
