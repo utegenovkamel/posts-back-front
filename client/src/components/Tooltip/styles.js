@@ -6,7 +6,6 @@ export const Container = styled.button`
   border: none;
   background: transparent;
   ${({ showContent }) => {
-    console.log('on', showContent)
     if (showContent === 'hover') {
       return css`
         &:hover {
